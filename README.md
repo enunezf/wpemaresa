@@ -44,3 +44,9 @@ drwxr-xr-x    9 root     root          4096 May 10 15:45 ..
 -rw-r--r--    1 root     root           740 May 10 15:45 README
 drwxr-xr-x    2 root     root          4096 May 10 15:45 emaresa.unudev.com
 ```
+
+Preparar la renovación del certificado
+
+```
+docker-compose up --force-recreate --no-deps certbot
+```
