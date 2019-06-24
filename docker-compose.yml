@@ -17,7 +17,7 @@ services:
   wordpress:
     depends_on: 
       - db
-    image: wordpress:5.2.2-fpm-alpine
+    image: wordpress:5.1.1-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file: .env
@@ -39,7 +39,6 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
@@ -55,7 +54,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email enrique@unu.cl --agree-tos --no-eff-email --force-renewal -d emaresa.unudev.com
+    command: certonly --webroot --webroot-path=/var/www/html --email test@unudev.com --agree-tos --no-eff-email --staging -d emaresa.unudev.com
 
 volumes:
   certbot-etc:
